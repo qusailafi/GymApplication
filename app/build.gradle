@@ -96,8 +96,9 @@ dependencies {
     //coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
-
-    //room
+debugImplementation("androidx.compose.ui:ui-test-manifest:$compose_version")
+    testImplementation('org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1')
+     //room
 
     implementation("androidx.room:room-ktx:2.4.3")
     kapt "androidx.room:room-compiler:2.4.3"

@@ -4,5 +4,5 @@ package com.example.myapplication.data.remote
 import retrofit2.http.GET
 interface ApiServices {
     @GET("gyms.json")
-    suspend fun getGyms(): Response<List<GymsResponseItem>>
+    suspend fun getGyms(): List<GymsResponseItem>
 }

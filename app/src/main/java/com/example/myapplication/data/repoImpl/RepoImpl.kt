@@ -16,16 +16,12 @@ class RepoImpl(val apiServices: ApiServices,val gymsDao: GymsDao) :  GymRepo {
                 try {
                     val response = apiServices.getGyms()
 
-                    if (response.isSuccessful) {
-                        val body = response.body()
-                        if (body != null) {
-                            gymsDao.addAllGyms(body)
-                            emit(Resource.success(body ) )
 
-                        }else{
-                            emit(Resource.error(data = gymsDao.getAllGyms(), "Something went wrong, try again later") )
+                        if (response != null) {
+                            gymsDao.addAllGyms(response)
+                            emit(Resource.success(response ) )
 
-                        }
+
                     } else {
 
                          emit(Resource.error(data = gymsDao.getAllGyms(), "Something went wrong, try again later") )
