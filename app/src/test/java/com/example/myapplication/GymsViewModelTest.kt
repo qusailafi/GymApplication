@@ -37,6 +37,16 @@ class GymsViewModelTest {
         )
     }
 
+    @Test
+    fun checkListIsNotEmpty()=scope.runTest {
+        val viewModel = getViewModel()
+        viewModel.state.data?.addAll(DummyGym.getGymList())
+        val listSize = viewModel.state.data?.size
+        assert(
+            listSize != 0
+        )
+    }
+
     private fun getViewModel(): GymsViewModel {
         val gymRepo = RepoImpl(MockApiServices(), GymDaoMock())
 
